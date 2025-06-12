@@ -35,6 +35,8 @@ function App() {
           humidity: data.current.humidity,
           wind_speed: data.current.wind_kph,
           uv_index: data.current.uv,
+          pressure: data.current.pressure_mb,
+          feelslike: data.current.feelslike_c,
           condition: data.current.condition.text,
           icon: data.current.condition.icon,
           location: data.location.name,
@@ -114,12 +116,13 @@ function App() {
               <img src={`https:${weather.icon}`} alt="weather icon" />
               <p><strong>Condition:</strong> {weather.condition}</p>
             </div>
-            <div>
-              <p><strong>Temperature:</strong> {weather.temperature} °C</p>
-              <p><strong>Humidity:</strong> {weather.humidity} %</p>
-              <p><strong>Wind Speed:</strong> {weather.wind_speed} km/h</p>
-              <p><strong>UV Index:</strong> {weather.uv_index}</p>
-              <p><strong>Coordinates:</strong> {weather.lat.toFixed(4)}, {weather.lon.toFixed(4)}</p>
+            <div className="info-column">
+              <p><img src="/icons/temperature.png" alt="" /> <strong>Temperature:</strong> {weather.temperature} °C</p>
+              <p><img src="/icons/humidity.png" alt="" /> <strong>Humidity:</strong> {weather.humidity} %</p>
+              <p><img src="/icons/wind.png" alt="" /> <strong>Wind Speed:</strong> {weather.wind_speed} km/h</p>
+              <p><img src="/icons/uv-index.png" alt="" /> <strong>UV Index:</strong> {weather.uv_index}</p>
+              <p><img src="/icons/thermometer.png" alt="" /> <strong>Feels Like:</strong> {weather.feelslike} °C</p>
+              <p><img src="/icons/pressure.png" alt="" /> <strong>Pressure:</strong> {weather.pressure} mb</p>
             </div>
           </div>
         </div>

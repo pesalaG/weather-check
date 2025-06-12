@@ -65,36 +65,64 @@ h1, h2 {
 }
 
 .weather-details {
-  margin-top: 20px;
+  margin-top: 5px;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: var(--bg-color);
 }
 
+.weather-details h2 {
+  margin-bottom: 30px;
+}
+
+
 .weather-info {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Changed from center to space-between */
+  justify-content: space-between;
   gap: 30px;
-  margin-top: 15px;
+  margin-top: 20px;
   text-align: left;
-  padding: 0 20px; /* Added padding to create space on sides */
+  padding: 0 20px;
 }
 
 .weather-info > div:first-child {
-  text-align: left; /* Align condition section to left */
-  margin-right: auto; /* Push it to the left */
+  text-align: left;
+  margin-right: auto;
+  max-width: 250px; /* Limit width */
+  word-wrap: break-word;
+  white-space: normal;
 }
 
+
 .weather-info > div:last-child {
-  text-align: left; /* Align parameters section to right */
-  margin-left: auto; /* Push it to the right */
+  text-align: left;
+  margin-left: auto;
+  padding-left: 140px; /* Shifts parameters further to the right */
 }
 
 .weather-info img {
-  width: 80px; /* Increased from 64px */
-  height: 80px; /* Increased from 64px */
+  width: 80px;
+  height: 80px;
+}
+
+.weather-info p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0; /* Increased vertical gap */
+}
+
+.weather-info p img {
+  width: 25px;
+  height: 25px;
+  filter: brightness(0.9);
+}
+
+.info-column {
+  flex: 1;
+  min-width: 250px;
 }
 
 .leaflet-popup-content img {
@@ -102,7 +130,7 @@ h1, h2 {
   margin: 0 auto;
 }
 
-/*  Responsive Design for Small Screens */
+/* Responsive Design for Small Screens */
 @media (max-width: 600px) {
   .weather-info {
     flex-direction: column;
@@ -115,6 +143,15 @@ h1, h2 {
   .weather-info > div:last-child {
     text-align: center;
     margin: 0 auto;
+    padding-left: 0;
+  }
+
+  .info-column {
+    text-align: center;
+  }
+
+  .weather-info p {
+    justify-content: center;
   }
 
   .map-container {
