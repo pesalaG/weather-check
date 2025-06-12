@@ -1,33 +1,59 @@
+:root {
+  --primary-color: #4CAF50;
+  --accent-color: #45a049;
+  --bg-color: #f9f9f9;
+  --text-color: #333;
+  --max-width: 800px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: var(--text-color);
+}
+
 .App {
   text-align: center;
-  max-width: 800px;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 20px;
 }
 
+h1, h2 {
+  color: var(--primary-color);
+}
+
 .search-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 20px 0;
+  gap: 10px;
 }
 
 .search-form input {
-  padding: 8px;
-  width: 200px;
-  margin-right: 10px;
-  border: 1px solid #ddd;
+  padding: 10px;
+  width: 220px;
+  max-width: 80%;
+  border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 1rem;
 }
 
 .search-form button {
-  padding: 8px 16px;
-  background-color: #4CAF50;
+  padding: 10px 20px;
+  background-color: var(--primary-color);
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .search-form button:hover {
-  background-color: #45a049;
+  background-color: var(--accent-color);
 }
 
 .map-container {
@@ -35,6 +61,7 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
+  height: 400px;
 }
 
 .weather-details {
@@ -42,23 +69,63 @@
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: var(--bg-color);
 }
 
 .weather-info {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Changed from center to space-between */
   gap: 30px;
   margin-top: 15px;
   text-align: left;
+  padding: 0 20px; /* Added padding to create space on sides */
+}
+
+.weather-info > div:first-child {
+  text-align: left; /* Align condition section to left */
+  margin-right: auto; /* Push it to the left */
+}
+
+.weather-info > div:last-child {
+  text-align: left; /* Align parameters section to right */
+  margin-left: auto; /* Push it to the right */
 }
 
 .weather-info img {
-  width: 64px;
-  height: 64px;
+  width: 80px; /* Increased from 64px */
+  height: 80px; /* Increased from 64px */
 }
 
 .leaflet-popup-content img {
   display: block;
   margin: 0 auto;
+}
+
+/*  Responsive Design for Small Screens */
+@media (max-width: 600px) {
+  .weather-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+  }
+
+  .weather-info > div:first-child,
+  .weather-info > div:last-child {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .map-container {
+    height: 300px;
+  }
+
+  .search-form input {
+    width: 100%;
+  }
+
+  .search-form {
+    flex-direction: column;
+  }
 }

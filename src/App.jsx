@@ -68,7 +68,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Weather Map App</h1>
+      <h1>Weather App</h1>
       
       <form onSubmit={handleSearch} className="search-form">
         <input
